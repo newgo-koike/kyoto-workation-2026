@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Session 1 Worksheet — 真のセンターピンを射抜く</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html, body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #1A1A1A;
+    background: #FFFFFF;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root {
+    --ink: #0F0F0F;
+    --paper: #FAF8F3;
+    --accent: #D93A26;
+    --accent-deep: #8C1F10;
+    --gold: #B8934A;
+    --mute: #7A7A7A;
+    --rule: #1A1A1A;
+    --soft: #EFEAE0;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 14mm 15mm;
+    page-break-after: always;
+    background: var(--paper);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  .page-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  /* Header band */
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 5px 0;
+    margin-bottom: 8mm;
+    font-family: 'Bebas Neue', 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.15em;
+    font-size: 10pt;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .band .left { display: flex; gap: 14px; align-items: center; }
+  .band .tag {
+    background: var(--ink); color: var(--paper);
+    padding: 2px 10px; font-weight: 700;
+    font-size: 9pt; letter-spacing: 0.2em;
+  }
+  .band .accent-dot {
+    width: 8px; height: 8px; background: var(--accent);
+    display: inline-block; border-radius: 50%;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 8pt;
+    color: var(--mute);
+    border-top: 1px solid var(--mute);
+    padding-top: 3mm;
+    margin-top: 6mm;
+    flex-shrink: 0;
+  }
+  .footer .mark { color: var(--accent); font-weight: 700; }
+
+  /* ============ COVER ============ */
+  .cover {
+    background:
+      radial-gradient(circle at 85% 15%, rgba(217,58,38,0.10) 0%, transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(184,147,74,0.12) 0%, transparent 45%),
+      var(--paper);
+    padding: 18mm 16mm;
+    justify-content: space-between;
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.15em;
+    color: var(--ink);
+    font-size: 10pt;
+  }
+  .cover-top .brand { display: flex; align-items: center; gap: 10px; }
+  .cover-top .brand::before {
+    content: ''; width: 22px; height: 22px;
+    background: var(--accent);
+    transform: rotate(45deg);
+    display: inline-block;
+  }
+  .cover-top .meta { text-align: right; line-height: 1.6; }
+
+  .cover-mid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6mm 0;
+  }
+  .kicker {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.35em;
+    font-size: 12pt;
+    color: var(--accent);
+    margin-bottom: 12mm;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .kicker::before {
+    content: ''; width: 54px; height: 2px; background: var(--accent);
+  }
+  .cover-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 56pt;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 8mm;
+    letter-spacing: 0.02em;
+  }
+  .cover-title .em {
+    display: inline-block;
+    background: linear-gradient(180deg, transparent 62%, rgba(217,58,38,0.28) 62%, rgba(217,58,38,0.28) 88%, transparent 88%);
+    padding: 0 4px;
+  }
+  .cover-sub {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    font-size: 13pt;
+    line-height: 1.9;
+    color: #2A2A2A;
+    max-width: 150mm;
+    margin-bottom: 18mm;
+  }
+  .cover-sub strong { font-weight: 700; color: var(--accent-deep); }
+  .quote-block {
+    border-left: 4px solid var(--accent);
+    padding: 6mm 8mm;
+    background: rgba(255,255,255,0.55);
+    max-width: 150mm;
+  }
+  .quote-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 9pt;
+    color: var(--accent);
+    margin-bottom: 4mm;
+  }
+  .quote-text {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 17pt;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .cover-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+    border-top: 1px solid var(--ink);
+    padding-top: 6mm;
+  }
+  .field-group { display: flex; flex-direction: column; gap: 3mm; }
+  .field-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 9pt;
+    color: var(--mute);
+  }
+  .field-line {
+    border-bottom: 1.5px solid var(--ink);
+    height: 9mm;
+  }
+
+  /* ============ STEP HEADER ============ */
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12mm;
+    margin-bottom: 6mm;
+    flex-shrink: 0;
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 58pt;
+    line-height: 0.8;
+    color: var(--ink);
+    position: relative;
+  }
+  .step-num::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 100%; height: 7px;
+    background: var(--accent);
+  }
+  .step-title-wrap { flex: 1; padding-top: 2mm; }
+  .step-phase {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 10pt;
+    color: var(--accent);
+    margin-bottom: 2mm;
+  }
+  .step-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 22pt;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 2mm;
+  }
+  .step-desc {
+    font-size: 10pt;
+    line-height: 1.75;
+    color: #333;
+  }
+  .step-desc strong { color: var(--accent-deep); font-weight: 700; }
+
+  .directive {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4mm 6mm;
+    margin-bottom: 5mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10pt;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  .directive .target {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13pt;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+  }
+  .timer {
+    display: inline-block;
+    background: var(--accent);
+    color: #FFF;
+    padding: 1.5mm 4mm;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.15em;
+    font-size: 10pt;
+    margin-left: 4mm;
+  }
+
+  /* STEP 1: grid */
+  .brainstorm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--ink);
+    flex: 1;
+  }
+  .brainstorm-cell {
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    padding: 3mm 4mm;
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+  }
+  .brainstorm-cell:nth-child(2n) { border-right: none; }
+  .brainstorm-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .cell-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15pt;
+    color: var(--accent);
+    min-width: 8mm;
+    font-weight: 700;
+  }
+  .cell-num.milestone { color: var(--accent-deep); }
+  .cell-line {
+    flex: 1;
+    border-bottom: 1px dashed #BBB;
+    height: 6mm;
+  }
+  .milestone-note {
+    margin-top: 3mm;
+    font-size: 9pt;
+    color: var(--mute);
+    text-align: right;
+    font-style: italic;
+  }
+  .milestone-note strong { color: var(--accent); font-style: normal; }
+
+  /* STEP 2 */
+  .bottleneck-box {
+    border: 2px solid var(--ink);
+    padding: 8mm;
+    margin-top: 2mm;
+    position: relative;
+    background: #FFF;
+  }
+  .bottleneck-box::before {
+    content: 'THE ONE';
+    position: absolute;
+    top: -10px; left: 20px;
+    background: var(--accent);
+    color: #FFF;
+    padding: 2px 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 10pt;
+  }
+  .bottleneck-hint {
+    font-size: 9pt;
+    color: var(--mute);
+    margin-bottom: 4mm;
+    line-height: 1.6;
+  }
+  .writing-area {
+    border-bottom: 1.5px solid var(--ink);
+    height: 10mm;
+    margin-bottom: 3mm;
+  }
+  .writing-area.short { height: 9mm; }
+
+  .reason-area { margin-top: 6mm; display: flex; flex-direction: column; gap: 5mm; }
+  .reason-block .label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 10pt;
+    color: var(--accent);
+    margin-bottom: 2mm;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .reason-block .label::before {
+    content: ''; width: 14px; height: 2px; background: var(--accent);
+  }
+  .reason-block .ja {
+    font-size: 9.5pt; color: #444; margin-bottom: 3mm; line-height: 1.55;
+  }
+
+  /* STEP 3: Questions */
+  .phase-wrap { margin-bottom: 5mm; }
+  .phase-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8mm;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 2mm;
+    margin-bottom: 4mm;
+  }
+  .phase-letter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28pt;
+    color: var(--accent);
+    line-height: 0.9;
+  }
+  .phase-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 13pt;
+    color: var(--ink);
+  }
+  .phase-sub {
+    font-size: 9pt;
+    color: var(--mute);
+    letter-spacing: 0.15em;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .q-item {
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 4mm;
+    margin-bottom: 3mm;
+    padding: 3mm 0;
+    border-bottom: 1px dashed #CCC;
+  }
+  .q-item:last-child { border-bottom: none; }
+  .q-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17pt;
+    color: var(--ink);
+    background: var(--soft);
+    text-align: center;
+    padding: 2mm 0;
+    border-left: 3px solid var(--accent);
+    line-height: 1.1;
+    font-weight: 700;
+    align-self: start;
+  }
+  .q-body .q-text {
+    font-size: 10pt;
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 2.5mm;
+  }
+  .q-body .q-text strong { color: var(--accent-deep); }
+  .q-body .q-line {
+    border-bottom: 1px solid #AAA;
+    height: 7mm;
+    margin-bottom: 1.5mm;
+  }
+
+  /* Q10 emphasis */
+  .q-item.q10 {
+    background: rgba(217,58,38,0.06);
+    padding: 4mm 4mm;
+    border: 1.5px solid var(--accent);
+    border-bottom: 1.5px solid var(--accent);
+    margin-top: 3mm;
+  }
+  .q-item.q10 .q-num {
+    background: var(--accent);
+    color: #FFF;
+    border-left: none;
+    font-size: 15pt;
+  }
+
+  /* STEP 4 */
+  .redef-wrap {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8mm;
+    margin-top: 2mm;
+    position: relative;
+  }
+  .redef-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 28mm; height: 28mm;
+    background: var(--accent);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+  .redef-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 11pt;
+    color: var(--accent);
+    margin-bottom: 4mm;
+    position: relative; z-index: 2;
+  }
+  .redef-syntax {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12pt;
+    line-height: 2;
+    color: var(--paper);
+    margin-bottom: 5mm;
+    position: relative; z-index: 2;
+  }
+  .redef-syntax .slot {
+    display: inline-block;
+    background: rgba(217,58,38,0.3);
+    padding: 0 6px;
+    border-bottom: 1.5px solid var(--accent);
+    color: #FFE;
+    font-weight: 700;
+  }
+  .redef-write {
+    background: rgba(255,255,255,0.95);
+    padding: 5mm;
+    color: var(--ink);
+  }
+  .redef-write-line {
+    border-bottom: 1.5px solid var(--ink);
+    height: 10mm;
+    margin-bottom: 2mm;
+  }
+  .redef-write-intro {
+    font-size: 10pt;
+    margin-bottom: 4mm;
+    font-weight: 700;
+    color: var(--accent-deep);
+  }
+
+  .share-panel {
+    border: 1.5px solid var(--ink);
+    padding: 6mm;
+    margin-top: 2mm;
+  }
+  .share-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 13pt;
+    color: var(--ink);
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .share-title::before {
+    content: ''; width: 18px; height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .share-desc {
+    font-size: 9pt;
+    color: var(--mute);
+    margin-bottom: 5mm;
+    line-height: 1.7;
+  }
+  .share-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+  }
+  .share-box .sb-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.15em;
+    font-size: 9pt;
+    color: var(--accent);
+    margin-bottom: 2mm;
+  }
+  .share-box .sb-line {
+    border-bottom: 1px solid var(--ink);
+    height: 8mm;
+    margin-bottom: 2mm;
+  }
+
+  .goal-strip {
+    margin-top: 6mm;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6mm 7mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .goal-strip .gl {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 9pt;
+    color: var(--accent);
+    margin-bottom: 2mm;
+  }
+  .goal-strip .gt {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+  .goal-strip .arrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32pt;
+    color: var(--accent);
+    line-height: 1;
+    padding-left: 8mm;
+  }
+
+  /* Callout */
+  .callout {
+    background: linear-gradient(135deg, rgba(217,58,38,0.08) 0%, rgba(184,147,74,0.08) 100%);
+    border-left: 3px solid var(--accent);
+    padding: 3mm 5mm;
+    margin: 3mm 0;
+    font-size: 9pt;
+    line-height: 1.7;
+    color: #333;
+  }
+  .callout strong { color: var(--accent-deep); }
+
+  /* Utility */
+  .spacer { flex: 1; }
+  .no-break { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ======================== COVER ======================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <div class="brand">KYOTO WORKATION 2026</div>
+    <div class="meta">
+      SESSION 1 / 60 MIN<br>
+      15:00 – 16:00
+    </div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="kicker">WORKSHEET — SESSION 01</div>
+    <h1 class="cover-title">
+      真の<span class="em">センターピン</span>を<br>射抜く。
+    </h1>
+    <p class="cover-sub">
+      「解けない悩み」を「解くべき課題」に昇華させ、<br>
+      実行の<strong>ブレーキ</strong>を外す60分。<br>
+      綺麗な答えはいらない。本音のドロドロの中にだけ、本質はある。
+    </p>
+
+    <div class="quote-block">
+      <div class="quote-label">KILLER PHRASE</div>
+      <div class="quote-text">解けない問いに、<br>時間を溶かさない。</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="field-group">
+      <div class="field-label">NAME ／ 氏名</div>
+      <div class="field-line"></div>
+    </div>
+    <div class="field-group">
+      <div class="field-label">DATE ／ 日付</div>
+      <div class="field-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== STEP 1 ======================== -->
+<section class="page">
+  <div class="band">
+    <div class="left">
+      <span class="tag">SESSION 01</span>
+      <span class="accent-dot"></span>
+      <span>課題抽出 / IDENTIFY THE BOTTLENECK</span>
+    </div>
+    <div>STEP 01 / 04</div>
+  </div>
+
+  <div class="page-body">
+    <div class="step-header">
+      <div class="step-num">01</div>
+      <div class="step-title-wrap">
+        <div class="step-phase">DIVERGE ／ 発散</div>
+        <h2 class="step-title">ギャップを定義し、埋まらない理由を書き出す</h2>
+        <p class="step-desc">
+          まず現状と理想のギャップを一行で定義する。次に<strong>そのギャップが、なぜ今まで埋まらなかったのか</strong>——言い訳・ブレーキ・怖いこと・見て見ぬふりをしてきたことを全部書き出す。
+        </p>
+      </div>
+    </div>
+
+    <!-- Part A: ギャップ定義 -->
+    <div style="border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 4mm;">
+      <div style="font-family:'Noto Sans JP',sans-serif; font-weight:700; font-size:8.5pt; color:var(--accent); margin-bottom:5px; letter-spacing:0.05em;">PART A ― ギャップを定義する　<span style="color:var(--mute); font-size:7.5pt; font-weight:400;">3分</span></div>
+      <div style="display:flex; gap:10px; margin-bottom:5px;">
+        <!-- 現状 -->
+        <div style="flex:1;">
+          <div style="font-size:7pt; letter-spacing:0.1em; color:var(--mute); margin-bottom:4px;">現状 — 今どこにいるか</div>
+          <div style="display:flex; flex-direction:column; gap:3px;">
+            <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--mute); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1px solid var(--ink); height:18px;"></div></div>
+            <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--mute); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1px solid var(--ink); height:18px;"></div></div>
+            <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--mute); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1px solid var(--ink); height:18px;"></div></div>
+          </div>
+        </div>
+        <!-- 理想 -->
+        <div style="flex:1;">
+          <div style="font-size:7pt; letter-spacing:0.1em; color:var(--mute); margin-bottom:4px;">理想 — どこに向かいたいか</div>
+          <div style="display:flex; flex-direction:column; gap:3px;">
+            <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--mute); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1px solid var(--ink); height:18px;"></div></div>
+            <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--mute); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1px solid var(--ink); height:18px;"></div></div>
+            <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--mute); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1px solid var(--ink); height:18px;"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- ギャップ -->
+      <div>
+        <div style="font-size:7pt; letter-spacing:0.1em; color:var(--accent); margin-bottom:4px; font-weight:700;">▶ ギャップ — なぜ今、理想に届いていないか</div>
+        <div style="display:flex; flex-direction:column; gap:3px; padding-left:2px;">
+          <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--accent); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1.5px solid var(--accent); height:18px;"></div></div>
+          <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--accent); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1.5px solid var(--accent); height:18px;"></div></div>
+          <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--accent); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1.5px solid var(--accent); height:18px;"></div></div>
+          <div style="display:flex; align-items:center; gap:4px;"><span style="font-size:9pt; color:var(--accent); flex-shrink:0;">・</span><div style="flex:1; border-bottom:1.5px solid var(--accent); height:18px;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part B: 棚卸し -->
+    <div style="border-left: 3px solid var(--ink); padding-left: 8px; margin-bottom: 3mm;">
+      <div style="font-family:'Noto Sans JP',sans-serif; font-weight:700; font-size:8.5pt; color:var(--ink); margin-bottom:2px; letter-spacing:0.05em;">PART B ― ギャップが埋まらない理由を書き出す　<span style="color:var(--mute); font-size:7.5pt; font-weight:400;">5分</span></div>
+    </div>
+
+    <div class="directive">
+      <div>手を止めずに、最低 20 個。15個目から蓋をしてきた本音が出る。</div>
+      <div class="target">TARGET: 20 ITEMS</div>
+    </div>
+
+    <div class="brainstorm-grid">
+      <div class="brainstorm-cell"><span class="cell-num">01</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">02</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">03</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">04</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">05</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">06</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">07</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">08</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">09</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">10</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">11</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">12</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">13</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num">14</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num milestone">15</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num milestone">16</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num milestone">17</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num milestone">18</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num milestone">19</span><span class="cell-line"></span></div>
+      <div class="brainstorm-cell"><span class="cell-num milestone">20</span><span class="cell-line"></span></div>
+    </div>
+    <div class="milestone-note">★ <strong>15個目以降</strong>は、蓋をしてきた本音のゾーン。ここで手を止めない。</div>
+
+    <div class="callout">
+      <strong>ファシリのひとこと —</strong> 「書くのは、あのギャップを埋める邪魔をしてきたものだけだ。目標と関係ない悩みは今日は置いておけ。」
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>KYOTO WORKATION / KOIKE SESSION</div>
+    <div class="mark">— 01 —</div>
+  </div>
+</section>
+
+<!-- ======================== STEP 2 ======================== -->
+<section class="page">
+  <div class="band">
+    <div class="left">
+      <span class="tag">SESSION 01</span>
+      <span class="accent-dot"></span>
+      <span>課題抽出 / SELECT THE ONE</span>
+    </div>
+    <div>STEP 02 / 04</div>
+  </div>
+
+  <div class="page-body">
+    <div class="step-header">
+      <div class="step-num">02</div>
+      <div class="step-title-wrap">
+        <div class="step-phase">SELECT ／ 選択</div>
+        <h2 class="step-title">ボトルネックの特定</h2>
+        <p class="step-desc">
+          20個の中から、<strong>「これが倒れれば、ギャップを埋める妨げも連鎖的に倒れる」</strong>という1枚目のドミノを選ぶ。迷ったら、最も直視したくないものを選べ。
+        </p>
+      </div>
+    </div>
+
+    <div class="directive">
+      <div>制約理論（TOC）: ボトルネック以外をいじっても全体は動かない。</div>
+      <div class="target">PICK ONE<span class="timer">5 MIN</span></div>
+    </div>
+
+    <div class="bottleneck-box">
+      <div class="bottleneck-hint">№ から選び、課題の内容を自分の言葉で書き直す。</div>
+
+      <div style="display:flex; gap: 6mm; align-items: flex-end;">
+        <div style="flex: 0 0 28mm;">
+          <div class="field-label" style="margin-bottom: 2mm;">№ FROM STEP 1</div>
+          <div class="writing-area short"></div>
+        </div>
+        <div style="flex: 1;">
+          <div class="field-label" style="margin-bottom: 2mm;">MY CENTER PIN ／ 選んだ課題</div>
+          <div class="writing-area"></div>
+        </div>
+      </div>
+
+      <div class="reason-area">
+        <div class="reason-block">
+          <div class="label">WHY THIS ONE?</div>
+          <div class="ja">なぜこれを「1枚目のドミノ」に選んだのか。他の悩みとの連鎖を想像して書く。</div>
+          <div class="writing-area"></div>
+          <div class="writing-area"></div>
+        </div>
+        <div class="reason-block">
+          <div class="label">DOMINO EFFECT</div>
+          <div class="ja">これが倒れたら、20個のうちどれが同時に倒れる？（番号で書き出す）</div>
+          <div class="writing-area short"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 6mm;">
+      <strong>注意 —</strong> 一番「解きやすいもの」を選んでいないか。「これを認めたくない」と感じるものが、ギャップを生んでいる本当のボトルネックだ。
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>KYOTO WORKATION / KOIKE SESSION</div>
+    <div class="mark">— 02 —</div>
+  </div>
+</section>
+
+<!-- ======================== STEP 3·A (Phase A+B) ======================== -->
+<section class="page">
+  <div class="band">
+    <div class="left">
+      <span class="tag">SESSION 01</span>
+      <span class="accent-dot"></span>
+      <span>課題抽出 / 11 QUESTIONS · PHASE A–B</span>
+    </div>
+    <div>STEP 03 / 04 · ①</div>
+  </div>
+
+  <div class="page-body">
+    <div class="step-header">
+      <div class="step-num">03</div>
+      <div class="step-title-wrap">
+        <div class="step-phase">ANALYZE ／ 解析</div>
+        <h2 class="step-title">11の問いによる自己解剖</h2>
+        <p class="step-desc">
+          選んだ1つに対し <strong>Phase A → D</strong> の順で潜る。綺麗な答えは不要。頭に浮かんだ言葉をそのまま置く。<strong>全15分</strong>。
+        </p>
+      </div>
+    </div>
+
+    <div class="phase-wrap no-break">
+      <div class="phase-header">
+        <div class="phase-letter">A</div>
+        <div style="flex:1;">
+          <div class="phase-title">現状の残酷な直視</div>
+          <div class="phase-sub">THE BRUTAL TRUTH</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q0</div>
+        <div class="q-body">
+          <div class="q-text">理想を <strong>100%</strong> とした時の現在地は？ そのギャップを埋める「<strong>最大の壁</strong>」を直感で言うと？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q1</div>
+        <div class="q-body">
+          <div class="q-text">「時間がない」<strong>禁止</strong>。— 到達できていない、真の理由は？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-wrap no-break">
+      <div class="phase-header">
+        <div class="phase-letter">B</div>
+        <div style="flex:1;">
+          <div class="phase-title">心理的ブレーキと甘え</div>
+          <div class="phase-sub">HIDDEN BRAKES</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q2</div>
+        <div class="q-body">
+          <div class="q-text">「会社員の安定」が、挑戦の<strong>ブレーキ（甘え）</strong>になっている部分は？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q3</div>
+        <div class="q-body">
+          <div class="q-text">本気でアクセルを踏んだとき、<strong>失うことを恐れているもの</strong>は？（睡眠・評価・人間関係…）</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>KYOTO WORKATION / KOIKE SESSION</div>
+    <div class="mark">— 03 · ① —</div>
+  </div>
+</section>
+
+<!-- ======================== STEP 3·B (Phase C) ======================== -->
+<section class="page">
+  <div class="band">
+    <div class="left">
+      <span class="tag">SESSION 01</span>
+      <span class="accent-dot"></span>
+      <span>課題抽出 / 11 QUESTIONS · PHASE C</span>
+    </div>
+    <div>STEP 03 / 04 · ②</div>
+  </div>
+
+  <div class="page-body">
+    <div class="phase-wrap" style="margin-top: 2mm;">
+      <div class="phase-header">
+        <div class="phase-letter">C</div>
+        <div style="flex:1;">
+          <div class="phase-title">限界点とリソース</div>
+          <div class="phase-sub">LIMITS &amp; RESOURCES</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q4</div>
+        <div class="q-body">
+          <div class="q-text">今のままを続けた場合、<strong>半年後に限界を迎えるのは</strong>？（体力／モチベ／スキル）</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q5</div>
+        <div class="q-body">
+          <div class="q-text">目標達成に <strong>決定的に欠けているもの</strong> を1つ挙げると？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q6</div>
+        <div class="q-body">
+          <div class="q-text">「<strong>自分でやった方が早い</strong>」と抱え込んでいるタスクは？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q7</div>
+        <div class="q-body">
+          <div class="q-text">あなたのエネルギーを <strong>最も奪っている</strong> 人／環境／習慣は？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Phase C の狙い —</strong> 「リソース不足」を他責にせず、自分の配分ミスとして引き受ける。 エネルギーを奪う存在を可視化するだけで、対策は半分見えている。
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>KYOTO WORKATION / KOIKE SESSION</div>
+    <div class="mark">— 03 · ② —</div>
+  </div>
+</section>
+
+<!-- ======================== STEP 3·C (Phase D) ======================== -->
+<section class="page">
+  <div class="band">
+    <div class="left">
+      <span class="tag">SESSION 01</span>
+      <span class="accent-dot"></span>
+      <span>課題抽出 / 11 QUESTIONS · PHASE D</span>
+    </div>
+    <div>STEP 03 / 04 · ③</div>
+  </div>
+
+  <div class="page-body">
+    <div class="phase-wrap" style="margin-top: 2mm;">
+      <div class="phase-header">
+        <div class="phase-letter">D</div>
+        <div style="flex:1;">
+          <div class="phase-title">構造化とセンターピン</div>
+          <div class="phase-sub">STRUCTURE &amp; THE CORE</div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q8</div>
+        <div class="q-body">
+          <div class="q-text">気合に頼らず自動で動ける「<strong>仕組み</strong>」が欠けているのはどこ？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Q9</div>
+        <div class="q-body">
+          <div class="q-text">なぜ、これまで <strong>解決されずに放置</strong> されてきたのか？</div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+
+      <div class="q-item q10 no-break">
+        <div class="q-num">Q10</div>
+        <div class="q-body">
+          <div class="q-text" style="font-size: 11pt; font-weight: 700;">
+            全てをドミノ倒しにする「<strong>センターピン（根本原因）</strong>」はどれか？
+          </div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+          <div class="q-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 4mm;">
+      <strong>Q10 に達したら —</strong> それは本当に「根本」か。もう一段下に、誰にも言いたくない本音が潜んでいないか。最後にもう一度、自分に問え。
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>KYOTO WORKATION / KOIKE SESSION</div>
+    <div class="mark">— 03 · ③ —</div>
+  </div>
+</section>
+
+<!-- ======================== STEP 4·A (Redefinition) ======================== -->
+<section class="page">
+  <div class="band">
+    <div class="left">
+      <span class="tag">SESSION 01</span>
+      <span class="accent-dot"></span>
+      <span>課題抽出 / REDEFINE</span>
+    </div>
+    <div>STEP 04 / 04 · ①</div>
+  </div>
+
+  <div class="page-body">
+    <div class="step-header">
+      <div class="step-num">04</div>
+      <div class="step-title-wrap">
+        <div class="step-phase">CONVERGE ／ 収束</div>
+        <h2 class="step-title">真の課題の再定義</h2>
+        <p class="step-desc">
+          内省の果てに、解くべき問いを <strong>一行</strong> で定義し直す。これが、あなたが月曜日に持ち帰る「武器」になる。
+        </p>
+      </div>
+    </div>
+
+    <div class="redef-wrap">
+      <div class="redef-label">THE ONE SENTENCE</div>
+      <div class="redef-syntax">
+        私の真の課題は、<br>
+        <span class="slot">（表面的な悩み）</span> ではなく、<br>
+        <span class="slot">（直視した本音・構造的欠陥）</span> を解決することである。
+      </div>
+
+      <div class="redef-write">
+        <div class="redef-write-intro">私の真の課題は、</div>
+        <div class="redef-write-line"></div>
+        <div class="redef-write-line"></div>
+        <div class="redef-write-line"></div>
+        <div class="redef-write-line"></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 6mm;">
+      <strong>例 —</strong> 「私の真の課題は、営業資料を作る時間がないことではなく、<strong>『人からの評価を失うのが怖くて、60点の出来で仕事を振る勇気がないこと』</strong> を解決することである。」
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>KYOTO WORKATION / KOIKE SESSION</div>
+    <div class="mark">— 04 · ① —</div>
+  </div>
+</section>
+
+<!-- ======================== STEP 4·B (Share + Goal) ======================== -->
+<section class="page">
+  <div class="band">
+    <div class="left">
+      <span class="tag">SESSION 01</span>
+      <span class="accent-dot"></span>
+      <span>課題抽出 / SHARE & DECLARE</span>
+    </div>
+    <div>STEP 04 / 04 · ②</div>
+  </div>
+
+  <div class="page-body">
+    <div class="share-panel">
+      <div class="share-title">SHARE &amp; FEEDBACK ／ グループ・15分</div>
+      <div class="share-desc">
+        センターピンを宣言し、互いに「それは本当に根本原因か？」「Q3から逃げていないか？」「他人のせいに聞こえないか？」を問い返す。
+      </div>
+      <div class="share-grid">
+        <div class="share-box">
+          <div class="sb-label">MEMBER A — FEEDBACK FOR ME</div>
+          <div class="sb-line"></div>
+          <div class="sb-line"></div>
+          <div class="sb-line"></div>
+        </div>
+        <div class="share-box">
+          <div class="sb-label">MEMBER B — FEEDBACK FOR ME</div>
+          <div class="sb-line"></div>
+          <div class="sb-line"></div>
+          <div class="sb-line"></div>
+        </div>
+      </div>
+
+      <div style="margin-top: 6mm; padding-top: 4mm; border-top: 1px dashed #999;">
+        <div class="sb-label" style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.2em; font-size:10pt; color: var(--accent); margin-bottom: 3mm;">REVISION ／ 聞いた上で、書き直すなら</div>
+        <div class="sb-line" style="height: 9mm;"></div>
+        <div class="sb-line" style="height: 9mm;"></div>
+      </div>
+    </div>
+
+    <div class="goal-strip">
+      <div>
+        <div class="gl">SESSION 1 — GOAL STATE</div>
+        <div class="gt">「私が明日から解くべきは、この問いだ」<br>という1行を、握りしめている。</div>
+      </div>
+      <div class="arrow">→</div>
+    </div>
+
+    <div class="callout" style="margin-top: 6mm;">
+      <strong>持ち帰るもの —</strong> 完璧な答えではなく、「これを解けば他が連鎖で倒れる」という<strong>確信の1行</strong>。セッション2は、この1行を「明日やる2分」に翻訳する時間になる。
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>KYOTO WORKATION / KOIKE SESSION</div>
+    <div class="mark">— 04 · FIN —</div>
+  </div>
+</section>
+
+</body>
+</html>

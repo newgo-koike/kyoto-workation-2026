@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小池担当 — 京都ワーケーション 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Bebas+Neue&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0F0F0F;
+    --paper: #FAF8F3;
+    --accent: #D93A26;
+    --accent-deep: #8C1F10;
+    --gold: #B8934A;
+    --mute: #7A7A7A;
+    --soft: #EFEAE0;
+  }
+
+  html {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 32px 120px;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    margin-bottom: 64px;
+  }
+  .site-header .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.35em;
+    font-size: 14px;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .site-header .brand::before {
+    content: '';
+    width: 14px; height: 14px;
+    background: var(--accent);
+    transform: rotate(45deg);
+  }
+  .site-header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .site-header .sub {
+    font-size: 16px;
+    color: var(--mute);
+    line-height: 1.7;
+  }
+  .site-header .sub strong { color: var(--ink); font-weight: 700; }
+
+  /* ── Session Block ── */
+  .session {
+    margin-bottom: 56px;
+  }
+  .session-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .session-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .session-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--ink);
+  }
+  .session-meta {
+    font-size: 14px;
+    color: var(--mute);
+    margin-bottom: 24px;
+    padding-top: 8px;
+  }
+
+  /* ── Cards ── */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 640px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: #FFF;
+    border-top: 4px solid var(--accent);
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .card .card-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .card .card-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .card .card-desc {
+    font-size: 14px;
+    color: var(--mute);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .card-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 2px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+  }
+  .btn-secondary {
+    background: var(--soft);
+    color: var(--ink);
+  }
+  .btn-secondary:hover {
+    background: #E2DDD2;
+  }
+  .btn-icon {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* ── Killer Phrase ── */
+  .killer {
+    border-left: 5px solid var(--accent);
+    padding: 16px 24px;
+    background: rgba(217,58,38,0.04);
+    margin-bottom: 24px;
+  }
+  .killer .kp-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .killer .kp-text {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.12);
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 13px;
+    color: var(--mute);
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="brand">KYOTO WORKATION 2026 — KOIKE SESSION</div>
+    <h1>小池担当ワーク</h1>
+    <p class="sub">
+      京都ワーケーション <strong>2026年6月</strong> ／ ワークシート＆スライド一覧<br>
+      セッション1（15:00–16:00）＋ セッション2（16:00–17:00）
+    </p>
+  </header>
+
+  <!-- ── Session 1 ── -->
+  <section class="session">
+    <div class="session-header">
+      <span class="session-num">01</span>
+      <span class="session-title">真のセンターピンを射抜く。</span>
+    </div>
+    <div class="session-meta">15:00 – 16:00（60分）｜ 概念解説 → ワーク（4 STEP）→ 発表</div>
+
+    <div class="killer">
+      <div class="kp-label">KILLER PHRASE</div>
+      <div class="kp-text">解けない問いに、時間を溶かさない。</div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-badge">WORKSHEET</div>
+        <div class="card-title">ワークシート</div>
+        <div class="card-desc">8ページ A4 ／ STEP 01〜04：ギャップ定義 → ストッパー棚卸し → ボトルネック選択 → 真の課題再定義</div>
+        <div class="card-links">
+          <a href="session1/worksheet_session1.html" class="btn-primary"><span class="btn-icon">▶</span> HTML で開く</a>
+          <a href="session1/worksheet_session1.pdf" class="btn-secondary"><span class="btn-icon">↓</span> PDF</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-badge">SLIDES</div>
+        <div class="card-title">スライド</div>
+        <div class="card-desc">22枚 16:9 ／ Knowing-Doing Gap → TOC → ストッパー理論 → ギャップ＝モチベーション → ワーク解説</div>
+        <div class="card-links">
+          <a href="session1/slides_session1.html" class="btn-primary"><span class="btn-icon">▶</span> HTML で開く</a>
+          <a href="session1/slides_session1.pdf" class="btn-secondary"><span class="btn-icon">↓</span> PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Session 2 ── -->
+  <section class="session">
+    <div class="session-header">
+      <span class="session-num">02</span>
+      <span class="session-title">意志を捨て、設計を握る。</span>
+    </div>
+    <div class="session-meta">16:00 – 17:00（60分）｜ 概念解説 + 戒め×3 → ワーク（4 PHASE）→ 公開コミットメント</div>
+
+    <div class="killer">
+      <div class="kp-label">KILLER PHRASE</div>
+      <div class="kp-text">明日からの自分を信じるな。今日作る仕組みを信じろ。</div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-badge">WORKSHEET</div>
+        <div class="card-title">ワークシート</div>
+        <div class="card-desc">6ページ A4 ／ PHASE 1〜4：作戦命名 → 2分の自動予約 → 捨てる＆ハック → セーフティネット → 公開宣言</div>
+        <div class="card-links">
+          <a href="session2/worksheet_session2.html" class="btn-primary"><span class="btn-icon">▶</span> HTML で開く</a>
+          <a href="session2/worksheet_session2.pdf" class="btn-secondary"><span class="btn-icon">↓</span> PDF</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-badge">SLIDES</div>
+        <div class="card-title">スライド</div>
+        <div class="card-desc">16枚 16:9 ／ 仕組みの3原則 → 戒め（複雑化・意志依存・自己過信）→ ワーク解説 → 宣言ルール</div>
+        <div class="card-links">
+          <a href="session2/slides_session2.html" class="btn-primary"><span class="btn-icon">▶</span> HTML で開く</a>
+          <a href="session2/slides_session2.pdf" class="btn-secondary"><span class="btn-icon">↓</span> PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <span>KOIKE ／ KYOTO WORKATION 2026</span>
+    <span>LAST UPDATED — 2026-04-17</span>
+  </footer>
+
+</body>
+</html>
