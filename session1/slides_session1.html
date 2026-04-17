@@ -246,7 +246,7 @@
     color: #333;
   }
 
-  /* ======= ZEN (KDG, STOPPER 導入) ======= */
+  /* ======= ZEN ======= */
   .zen {
     background: var(--ink);
     color: var(--paper);
@@ -362,478 +362,41 @@
     line-height: 1.4;
   }
 
-  /* ======= STOPPER-DUAL (2種対比図解) ======= */
-  .stopper-dual {
-    padding: 120px 96px 96px;
-  }
-  .stopper-dual .badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #FFF;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.25em;
-    padding: 7px 20px;
-    margin-bottom: 24px;
-  }
-  .stopper-dual h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 900;
-    font-size: 72px;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 40px;
-  }
-  .stopper-dual h1 .emph { color: var(--accent); }
-  .sd-diagram {
+  /* ======= CONCEPT 4-AXIS (2x2 grid) ======= */
+  .concept-grid4 {
     display: grid;
-    grid-template-columns: 1fr 260px 1fr;
-    gap: 32px;
-    align-items: center;
-    margin-bottom: 36px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+    max-width: 1600px;
   }
-  .sd-col {
+  .axis-card {
     background: #FFF;
-    border-top: 4px solid #999;
-    padding: 26px 28px;
-    min-height: 440px;
-    position: relative;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-top: 4px solid var(--accent);
+    padding: 16px 28px;
     display: flex;
     flex-direction: column;
+    gap: 4px;
   }
-  .sd-col.external { border-top-color: var(--gold); }
-  .sd-col.internal { border-top-color: var(--accent); }
-  .sd-col .sd-label {
+  .axis-card .axis-num {
     font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.25em;
-    font-size: 22px;
-    color: var(--mute);
-    margin-bottom: 6px;
+    font-size: 32px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    line-height: 1;
   }
-  .sd-col.external .sd-label { color: var(--gold); }
-  .sd-col.internal .sd-label { color: var(--accent); }
-  .sd-col .sd-subtitle {
+  .axis-card .axis-title {
     font-family: 'Noto Serif JP', serif;
     font-weight: 900;
     font-size: 26px;
     color: var(--ink);
-    margin-bottom: 18px;
-    line-height: 1.35;
-  }
-  .sd-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 18px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-  }
-  .sd-col li {
-    font-size: 20px;
-    line-height: 1.5;
-    color: #2A2A2A;
-    padding: 11px 0 11px 22px;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    position: relative;
-  }
-  .sd-col li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 22px;
-    width: 10px; height: 2px;
-    background: var(--accent);
-  }
-  .sd-col.external li::before { background: var(--gold); }
-  .sd-col .sd-tag {
-    margin-top: auto;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.2em;
-    font-size: 16px;
-    color: #FFF;
-    background: var(--ink);
-    padding: 8px 14px;
-    align-self: flex-start;
-  }
-  .sd-col.external .sd-tag { background: var(--gold); }
-  .sd-col.internal .sd-tag { background: var(--accent); }
-
-  .sd-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .sd-you {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--paper);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 72px;
-    letter-spacing: 0.1em;
-    position: relative;
-    box-shadow: 0 0 0 6px var(--paper), 0 0 0 8px rgba(217,58,38,0.35);
-  }
-  .sd-you::after {
-    content: '';
-    position: absolute;
-    width: 260px; height: 260px;
-    border: 2px dashed rgba(217,58,38,0.5);
-    border-radius: 50%;
-  }
-  .sd-center .sd-note {
-    margin-top: 24px;
-    font-size: 18px;
-    color: var(--mute);
-    text-align: center;
-    font-weight: 500;
-  }
-  .sd-arrow-left, .sd-arrow-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 60px; height: 2px;
-    background: var(--accent);
-  }
-  .sd-arrow-left { left: -60px; }
-  .sd-arrow-right { right: -60px; }
-  .sd-arrow-left::before, .sd-arrow-right::before {
-    content:''; position: absolute; top: -7px; width: 0; height: 0;
-    border-top: 8px solid transparent; border-bottom: 8px solid transparent;
-  }
-  .sd-arrow-left::before { right: -1px; border-left: 14px solid var(--accent); }
-  .sd-arrow-right::before { left: -1px; border-right: 14px solid var(--accent); }
-
-  .sd-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    padding: 20px 28px;
-    background: var(--soft);
-    border-left: 4px solid var(--accent);
-  }
-  .sd-footer .sd-foot-note {
-    font-size: 17px;
-    color: var(--mute);
-    font-weight: 500;
-  }
-  .sd-footer .sd-worksheet {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 700;
-    font-size: 22px;
-    color: var(--accent-deep);
-  }
-
-  /* ======= STOPPER-LOOP (負の感情ループ) ======= */
-  .stopper-loop {
-    padding: 120px 96px 96px;
-  }
-  .stopper-loop .badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #FFF;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.25em;
-    padding: 7px 20px;
-    margin-bottom: 20px;
-  }
-  .stopper-loop h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 900;
-    font-size: 64px;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 20px;
-  }
-  .stopper-loop h1 .emph { color: var(--accent); }
-  .sl-body {
-    display: grid;
-    grid-template-columns: 720px 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-  .sl-ring {
-    width: 680px;
-    height: 680px;
-    position: relative;
-    margin: 0 auto;
-  }
-  .sl-ring-bg {
-    position: absolute;
-    inset: 60px;
-    border: 3px dashed rgba(217,58,38,0.35);
-    border-radius: 50%;
-  }
-  .sl-center-text {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 260px;
-    text-align: center;
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 700;
-    font-size: 17px;
-    line-height: 1.75;
-    color: var(--ink);
-  }
-  .sl-node {
-    position: absolute;
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    background: #FFF;
-    border: 3px solid var(--ink);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 900;
-    font-size: 20px;
     line-height: 1.3;
-    color: var(--ink);
-    padding: 8px;
   }
-  .sl-node .n-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    margin-bottom: 4px;
-  }
-  /* 6 positions on circle (radius ~ 255 from center of 680x680 = (340,340))
-     angles: top(-90), 30°step clockwise: -90,-30,30,90,150,210 */
-  .sl-n1 { top: 0;                                   left: 255px; }
-  .sl-n2 { top: 127px;                               right: 0;    }
-  .sl-n3 { bottom: 127px;                            right: 0;    }
-  .sl-n4 { bottom: 0;                                left: 255px; }
-  .sl-n5 { bottom: 127px;                            left: 0;     }
-  .sl-n6 { top: 127px;                               left: 0;     }
-  .sl-node.strong {
-    background: var(--accent);
-    color: #FFF;
-    border-color: var(--accent-deep);
-  }
-  .sl-node.strong .n-num { color: #FFE4DF; }
-
-  .sl-right {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-  .sl-lead {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 1.55;
-    color: var(--ink);
-  }
-  .sl-lead .emph {
-    color: var(--accent);
-  }
-  .sl-worksheet {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 22px 28px;
-    border-left: 6px solid var(--accent);
-    font-size: 22px;
-    line-height: 1.6;
-  }
-  .sl-worksheet .lbl {
-    display: block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.3em;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
-  /* ======= GAP-MOTIVE (ギャップ可視化) ======= */
-  .gap-motive {
-    padding: 120px 96px 96px;
-  }
-  .gap-motive .badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #FFF;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.25em;
-    padding: 7px 20px;
-    margin-bottom: 20px;
-  }
-  .gap-motive h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 900;
-    font-size: 72px;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 36px;
-  }
-  .gap-motive h1 .emph { color: var(--accent); }
-
-  .gm-axis {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr 1fr;
-    align-items: stretch;
-    gap: 0;
-    margin-bottom: 30px;
-  }
-  .gm-block {
-    background: #FFF;
-    border: 2px solid var(--ink);
-    padding: 26px 28px 28px;
-    display: flex;
-    flex-direction: column;
-    min-height: 240px;
-    position: relative;
-  }
-  .gm-block .gm-label {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.25em;
-    font-size: 20px;
-    color: var(--mute);
-    margin-bottom: 10px;
-  }
-  .gm-block .gm-big {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 900;
-    font-size: 56px;
-    color: var(--ink);
-    line-height: 1.1;
-    margin-bottom: 14px;
-  }
-  .gm-block .gm-caption {
+  .axis-card .axis-desc {
     font-size: 18px;
-    line-height: 1.6;
-    color: #444;
-    margin-top: auto;
-  }
-  .gm-block.current {
-    border-right: none;
-  }
-  .gm-block.ideal {
-    border-left: none;
-    border-color: var(--accent);
-  }
-  .gm-block.ideal .gm-label { color: var(--accent); }
-  .gm-block.ideal .gm-big { color: var(--accent); }
-
-  .gm-gap {
-    background:
-      repeating-linear-gradient(
-        90deg,
-        var(--accent) 0 14px,
-        transparent 14px 28px
-      );
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-top: 2px solid var(--accent);
-    border-bottom: 2px solid var(--accent);
-  }
-  .gm-gap::before,
-  .gm-gap::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 16px solid transparent;
-    border-bottom: 16px solid transparent;
-  }
-  .gm-gap::before { left: 0; border-right: 20px solid var(--paper); }
-  .gm-gap::after  { right: 0; border-left: 20px solid var(--paper); }
-  .gm-gap-inner {
-    background: var(--paper);
-    padding: 18px 26px;
-    text-align: center;
-    z-index: 1;
-    border: 2px solid var(--accent);
-  }
-  .gm-gap-inner .gm-gap-lbl {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    letter-spacing: 0.35em;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-  .gm-gap-inner .gm-gap-main {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 900;
-    font-size: 28px;
-    color: var(--ink);
-    line-height: 1.4;
-    margin-bottom: 4px;
-  }
-  .gm-gap-inner .gm-gap-sub {
-    font-size: 14px;
-    color: var(--accent-deep);
-    font-weight: 700;
-  }
-
-  .gm-principles {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-bottom: 24px;
-  }
-  .gm-principle {
-    background: var(--soft);
-    padding: 16px 22px;
-    border-left: 4px solid var(--accent);
-    font-size: 17px;
-    line-height: 1.55;
-    color: #2A2A2A;
-  }
-  .gm-principle strong {
-    display: block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 14px;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-
-  .gm-bottom {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: center;
-  }
-  .gm-bottom .gm-lead {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 700;
-    font-size: 26px;
     line-height: 1.5;
-    color: var(--ink);
-  }
-  .gm-bottom .gm-lead .emph { color: var(--accent); }
-  .gm-bottom .gm-link {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 16px 22px;
-    border-left: 6px solid var(--accent);
-    font-size: 17px;
-    line-height: 1.55;
-  }
-  .gm-bottom .gm-link .lbl {
-    display: block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.3em;
-    color: var(--accent);
-    margin-bottom: 4px;
+    color: #444;
   }
 
   /* ======= BRIDGE ======= */
@@ -1102,7 +665,7 @@
 
 <div class="deck">
 
-  <!-- ============== SLIDE 1: COVER ============== -->
+  <!-- ============== SLIDE 01: COVER ============== -->
   <section class="slide cover">
     <div class="chrome-top">
       <div class="brand">KYOTO WORKATION 2026 — KOIKE SESSION</div>
@@ -1112,21 +675,20 @@
       <div class="cover-kicker">WORKSHEET SESSION — 15:00 – 16:00</div>
       <h1 class="cover-title">真の<span class="em">センターピン</span>を<br>射抜く。</h1>
       <p class="cover-sub">
-        「解けない悩み」を「解くべき課題」に昇華させ、<br>
-        実行の<strong>ブレーキ</strong>を外す60分。
+        「必要要素」から「最優先課題」を特定し、検証を経て「真の課題」を一行で定義する60分。
       </p>
       <div class="cover-quote">
         <div class="lbl">KILLER PHRASE</div>
-        <div class="txt">解けない問いに、時間を溶かさない。</div>
+        <div class="txt">全部やるは、何もやらないと同じだ。</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 01 / 22 —</div>
+      <div class="mark">— 01 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 2: TODAY'S GOAL ============== -->
+  <!-- ============== SLIDE 02: TODAY'S GOAL ============== -->
   <section class="slide goal">
     <div class="chrome-top">
       <div class="brand">KYOTO WORKATION 2026 — KOIKE SESSION</div>
@@ -1134,317 +696,162 @@
     </div>
     <div class="section-kicker">TODAY'S GOAL ／ 今日のゴール</div>
     <h1>
-      P（計画）の前に、<br>
-      足を掴む<span class="hl">泥沼</span>を特定する。
+      必要要素の課題から、<span class="hl">最優先の1つ</span>を選び抜く。
     </h1>
     <div class="goal-cards">
       <div class="goal-card">
-        <div class="num">01 — DIAGNOSIS</div>
-        <div class="t">真のボトルネックを<br>1つに絞る</div>
-        <div class="d">20個の「埋まらない理由」から、他を連鎖で倒す<strong>1枚目のドミノ</strong>を選び出す。</div>
+        <div class="num">01 — PRIORITY</div>
+        <div class="t">最優先課題を<br>1つに絞る</div>
+        <div class="d">必要要素ごとの課題を可視化し、影響度・着手しやすさ・難易度・即効性の4軸で<strong>最優先の1つ</strong>を特定する。</div>
       </div>
       <div class="goal-card">
         <div class="num">02 — DECLARATION</div>
-        <div class="t">明日から解くべき問いを<br>1行にする</div>
-        <div class="d">「私の真の課題は、〜ではなく、〜である」。<br>京都から持ち帰る<strong>確信の1行</strong>。</div>
+        <div class="t">真の課題を<br>一行で定義する</div>
+        <div class="d">8つの検証を経て磨き上げた<strong>確信の1行</strong>と、その理由を京都から持ち帰る。</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 02 / 22 —</div>
+      <div class="mark">— 02 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 3: KNOWING-DOING GAP (ZEN) ============== -->
+  <!-- ============== SLIDE 03: ZEN — 全部やるは失敗する ============== -->
   <section class="slide zen">
     <div class="chrome-top">
-      <div class="brand">LECTURE — THE GAP</div>
-      <div class="page-id">CONCEPT · 00</div>
+      <div class="brand">LECTURE — THE PRIORITY TRAP</div>
+      <div class="page-id">CONCEPT · 01</div>
     </div>
     <div>
-      <div class="section-kicker">KNOWING ─ DOING GAP</div>
+      <div class="section-kicker">THE PRIORITY TRAP</div>
       <p class="zen-hook">
-        何冊のビジネス書を読み、いくつのセミナーを受けてきたか。<br>
-        なぜ、その素晴らしいノウハウたちは、月曜の朝には霧のように消えるのか。
+        課題は見えている。やるべきことも分かっている。<br>
+        なのに、3ヶ月経っても何も変わっていない。<br>
+        理由は単純だ。全部やろうとしている。
       </p>
       <div class="zen-punch">
-        問題は<span class="hl">知識不足</span>じゃない。
+        <span class="hl">全部やる</span>は、<span class="hl">何もやらない</span>と同じだ。
       </div>
-      <div class="zen-tag">THE REAL ISSUE IS EXECUTION COST</div>
+      <div class="zen-tag">FOCUS ON THE ONE THAT MOVES EVERYTHING</div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 03 / 22 —</div>
+      <div class="mark">— 03 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 4: CONCEPT 1 — TOC ============== -->
+  <!-- ============== SLIDE 04: CONCEPT — なぜ1つに絞るのか ============== -->
   <section class="slide concept">
     <div class="chrome-top">
       <div class="brand">LECTURE — CORE CONCEPTS</div>
-      <div class="page-id">CONCEPT · 01</div>
+      <div class="page-id">CONCEPT · 02</div>
     </div>
-    <div class="badge">CONCEPT ① — TOC</div>
+    <div class="badge">CONCEPT — WHY PRIORITIZE</div>
     <h1>
-      <span class="strike">熱</span>を下げるな、<br>
-      <span class="emph">ウイルス</span>を叩け。
+      なぜ<span class="emph">1つ</span>なのか。
     </h1>
     <p class="lead">
-      「売上がない」「時間がない」は単なる<strong>現象（熱）</strong>に過ぎない。<br>
-      全体を止めている <strong>たった1つの詰まり（ボトルネック）</strong> を特定する。
+      制約理論（TOC）——チェーン全体の強度は、<strong>最も弱い1つのリング</strong>で決まる。<br>
+      最も弱い1点以外をいくら強化しても、チェーン全体の強度は変わらない。
     </p>
     <div class="concept-body">
       <div class="concept-card bad">
-        <div class="cl">× SYMPTOMS</div>
-        <div class="ct">現象をいじる。<br>対症療法の無限ループ。</div>
+        <div class="cl">SCATTER ／ 分散の罠</div>
+        <div class="ct">5つの課題に20%ずつ<br>＝ どれも閾値を超えない</div>
       </div>
       <div class="concept-card good">
-        <div class="cl">◯ BOTTLENECK</div>
-        <div class="ct">1箇所の詰まりを外す。<br>全体が動き出す。</div>
+        <div class="cl">FOCUS ／ 集中の原則</div>
+        <div class="ct">制約の1点に100%<br>＝ 堰き止めが外れ、全体が動く</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 04 / 22 —</div>
+      <div class="mark">— 04 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 5: CONCEPT ② STOPPER 導入 (ZEN) ============== -->
-  <section class="slide zen">
-    <div class="chrome-top">
-      <div class="brand">LECTURE — THE HIDDEN BRAKE</div>
-      <div class="page-id">CONCEPT · 02</div>
-    </div>
-    <div>
-      <div class="section-kicker">THE HIDDEN BRAKE</div>
-      <p class="zen-hook">
-        目標もある。計画も立てた。<br>
-        それなのに、なぜか動けない。続けられない。
-      </p>
-      <div class="zen-punch">
-        動けないのは、<span class="hl">意志</span>じゃない。<br>
-        <span class="hl">ストッパー</span>があるだけだ。
-      </div>
-      <div class="zen-tag">STOPPER — THE INVISIBLE RESISTANCE</div>
-    </div>
-    <div class="chrome-bottom">
-      <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 05 / 22 —</div>
-    </div>
-  </section>
-
-  <!-- ============== SLIDE 6: STOPPER 2種 (DUAL) ============== -->
-  <section class="slide stopper-dual">
-    <div class="chrome-top">
-      <div class="brand">LECTURE — STOPPER · FIG 1</div>
-      <div class="page-id">CONCEPT · 02 / FIG 1</div>
-    </div>
-    <div class="badge">CONCEPT ② — STOPPER</div>
-    <h1>
-      見えるブレーキと、<span class="emph">見えない</span>ブレーキ。
-    </h1>
-    <div class="sd-diagram">
-      <div class="sd-col external">
-        <div class="sd-label">外的ストッパー ／ EXTERNAL</div>
-        <div class="sd-subtitle">目に見える — 環境・時間・関係</div>
-        <ul>
-          <li>時間／空間の制限</li>
-          <li>家族・職場の干渉</li>
-          <li>SNS・スマホの誘惑</li>
-          <li>断れない人間関係</li>
-          <li>雑務・ルーティン</li>
-        </ul>
-        <div class="sd-tag">物理的に再設計できる</div>
-      </div>
-      <div class="sd-center">
-        <div class="sd-you">
-          YOU
-          <span class="sd-arrow-left"></span>
-          <span class="sd-arrow-right"></span>
-        </div>
-        <div class="sd-note">（ドミノが倒れない人）</div>
-      </div>
-      <div class="sd-col internal">
-        <div class="sd-label">内的ストッパー ／ INTERNAL</div>
-        <div class="sd-subtitle">目に見えない — 思い込み・感情・信念</div>
-        <ul>
-          <li>「自分には向いてない」</li>
-          <li>「やってもどうせ失敗する」</li>
-          <li>「人に迷惑をかけたくない」</li>
-          <li>「私は努力が続かない」</li>
-          <li>「失敗したら笑われる」</li>
-        </ul>
-        <div class="sd-tag">構造化して解除する</div>
-      </div>
-    </div>
-    <div class="sd-footer">
-      <div class="sd-foot-note">BizMe理論（ストッパー＝行動を止める見えないブレーキ）を再構成</div>
-      <div class="sd-worksheet">→ このあと STEP 01 PART B で、あなたのストッパーを20個書き出す。</div>
-    </div>
-    <div class="chrome-bottom">
-      <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 06 / 22 —</div>
-    </div>
-  </section>
-
-  <!-- ============== SLIDE 7: 負の感情ループ (LOOP) ============== -->
-  <section class="slide stopper-loop">
-    <div class="chrome-top">
-      <div class="brand">LECTURE — STOPPER · FIG 2</div>
-      <div class="page-id">CONCEPT · 02 / FIG 2</div>
-    </div>
-    <div class="badge">CONCEPT ② — STOPPER</div>
-    <h1>
-      ストッパーは、<span class="emph">ループ</span>で強化される。
-    </h1>
-    <div class="sl-body">
-      <div class="sl-ring">
-        <div class="sl-ring-bg"></div>
-        <div class="sl-center-text">
-          過去の体験が"信念"に変わり、<br>
-          行動を止め、結果を止め、<br>
-          そして信念をさらに太らせる。
-        </div>
-        <div class="sl-node sl-n1"><span class="n-num">①</span>出来事</div>
-        <div class="sl-node sl-n2 strong"><span class="n-num">②</span>意味づけ</div>
-        <div class="sl-node sl-n3 strong"><span class="n-num">③</span>感情</div>
-        <div class="sl-node sl-n4"><span class="n-num">④</span>回避・<br>行動しない</div>
-        <div class="sl-node sl-n5"><span class="n-num">⑤</span>結果が<br>出ない</div>
-        <div class="sl-node sl-n6"><span class="n-num">⑥</span>「やっぱり<br>無理」<br>再強化</div>
-      </div>
-      <div class="sl-right">
-        <div class="sl-lead">
-          ループは意志では<br>止まらない。<br>
-          一点に <span class="emph">楔（くさび）</span> を<br>打ち込むしかない。
-        </div>
-        <div class="sl-worksheet">
-          <span class="lbl">WORKSHEET LINK</span>
-          → STEP 03 Phase B（Q2-Q3）で、<br>
-          このループの最初の1打を見つける。
-        </div>
-      </div>
-    </div>
-    <div class="chrome-bottom">
-      <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 07 / 22 —</div>
-    </div>
-  </section>
-
-  <!-- ============== SLIDE 8: CONCEPT ③ WILL vs STRUCTURE ============== -->
-  <section class="slide concept">
+  <!-- ============== SLIDE 05: CONCEPT — 課題 vs 症状 ============== -->
+  <section class="slide concept" style="padding: 120px 120px 90px;">
     <div class="chrome-top">
       <div class="brand">LECTURE — CORE CONCEPTS</div>
       <div class="page-id">CONCEPT · 03</div>
     </div>
-    <div class="badge">CONCEPT ③ — WILL vs STRUCTURE</div>
-    <h1>
-      <span class="strike">頑張る</span>で済むなら、<br>
-      <span class="emph">とっくに済んでいる</span>。
+    <div class="badge">CONCEPT — TRUE CHALLENGE</div>
+    <h1 style="font-size: 88px; margin-bottom: 24px;">
+      それは<span class="strike">課題</span>ではなく、<span class="emph">症状</span>だ。
     </h1>
-    <p class="lead">
-      ストッパーは言語以前のレベルで作動する。<br>
-      「気合」「意志」では絶対に解除できない。<br>
-      外すべきは <strong>構造</strong> ── 環境・仕組み・問いの立て方。
+    <p class="lead" style="margin-bottom: 32px;">
+      多くの人が「課題」だと思っているものは、真の課題が引き起こした<strong>「症状」</strong>にすぎない。<br>
+      症状を潰しても、根っこが残る限り、また別の症状が出る。
     </p>
-    <div class="concept-body">
-      <div class="concept-card bad">
-        <div class="cl">× WILL ／ 意志</div>
-        <div class="ct">「頑張る」「気合で」<br>「来週こそ」。<br>続かない理由をまた増やす。</div>
+    <div class="concept-body" style="gap: 24px;">
+      <div class="concept-card bad" style="padding: 22px 28px;">
+        <div class="cl">SYMPTOM ／ 症状</div>
+        <div class="ct" style="font-size: 32px;">「売上が下がっている」</div>
       </div>
-      <div class="concept-card good">
-        <div class="cl">◯ STRUCTURE ／ 構造</div>
-        <div class="ct">物理的にやらない設計／<br>問いの再定義／<br>1枚目のドミノ特定。</div>
+      <div class="concept-card good" style="padding: 22px 28px;">
+        <div class="cl">TRUE CHALLENGE ／ 真の課題</div>
+        <div class="ct" style="font-size: 32px;">「既存顧客への提案が<br>月1回に落ちている」</div>
+      </div>
+      <div class="concept-card bad" style="padding: 22px 28px;">
+        <div class="cl">SYMPTOM ／ 症状</div>
+        <div class="ct" style="font-size: 32px;">「部下が育たない」</div>
+      </div>
+      <div class="concept-card good" style="padding: 22px 28px;">
+        <div class="cl">TRUE CHALLENGE ／ 真の課題</div>
+        <div class="ct" style="font-size: 32px;">「60点で任せる<br>判断基準がない」</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 08 / 22 —</div>
+      <div class="mark">— 05 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 9: CONCEPT ⑤-a ギャップ=モチベ (ZEN) ============== -->
-  <section class="slide zen">
+  <!-- ============== SLIDE 06: CONCEPT — 4つの評価軸 ============== -->
+  <section class="slide concept">
     <div class="chrome-top">
-      <div class="brand">LECTURE — GAP IS THE FUEL</div>
+      <div class="brand">LECTURE — CORE CONCEPTS</div>
       <div class="page-id">CONCEPT · 04</div>
     </div>
-    <div>
-      <div class="section-kicker">GAP IS THE FUEL</div>
-      <p class="zen-hook">
-        「やる気が出ない」のは、あなたの性格のせいじゃない。<br>
-        ギャップを、見失っているだけだ。
-      </p>
-      <div class="zen-punch">
-        モチベーションは、<span class="hl">意志</span>じゃない。<br>
-        <span class="hl">ギャップ</span>だ。
-      </div>
-      <div class="zen-tag">MOTIVATION ＝ IDEAL − CURRENT</div>
-    </div>
-    <div class="chrome-bottom">
-      <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 09 / 22 —</div>
-    </div>
-  </section>
-
-  <!-- ============== SLIDE 10: CONCEPT ⑤-b ギャップ可視化図解 ============== -->
-  <section class="slide gap-motive">
-    <div class="chrome-top">
-      <div class="brand">LECTURE — GAP · FIG 3</div>
-      <div class="page-id">CONCEPT · 04 / FIG 3</div>
-    </div>
-    <div class="badge">CONCEPT ④ — GAP ＝ MOTIVE</div>
+    <div class="badge">CONCEPT — EVALUATION AXES</div>
     <h1>
-      理想と現状の<span class="emph">距離</span>が、あなたを動かす。
+      <span class="strike">感覚</span>で選ぶな、<br>
+      <span class="emph">構造</span>で選べ。
     </h1>
-    <div class="gm-axis">
-      <div class="gm-block current">
-        <div class="gm-label">CURRENT ／ 現状</div>
-        <div class="gm-big">今ここ</div>
-        <div class="gm-caption">数字・場面・固有名詞で書ける現実。動かしたくても動かない足元。</div>
+    <p class="lead">
+      「なんとなく大事そう」で選ぶと、解きやすい課題に逃げる。<br>
+      4つの軸で構造的に評価する。
+    </p>
+    <div class="concept-grid4">
+      <div class="axis-card">
+        <div class="axis-num">01</div>
+        <div class="axis-title">影響度</div>
+        <div class="axis-desc">解決すれば他の課題も連鎖で動くか</div>
       </div>
-      <div class="gm-gap">
-        <div class="gm-gap-inner">
-          <div class="gm-gap-lbl">GAP</div>
-          <div class="gm-gap-main">このままじゃ、<br>いられない。</div>
-          <div class="gm-gap-sub">＝ 自然に湧き上がる衝動</div>
-        </div>
+      <div class="axis-card">
+        <div class="axis-num">02</div>
+        <div class="axis-title">着手しやすさ</div>
+        <div class="axis-desc">明日から取りかかれるか</div>
       </div>
-      <div class="gm-block ideal">
-        <div class="gm-label">IDEAL ／ 理想</div>
-        <div class="gm-big">ありたい姿</div>
-        <div class="gm-caption">本気で「こうなれたら本物だ」と思える未来。他人の理想ではない。</div>
+      <div class="axis-card">
+        <div class="axis-num">03</div>
+        <div class="axis-title">難易度</div>
+        <div class="axis-desc">自分の力で解決可能か</div>
       </div>
-    </div>
-    <div class="gm-principles">
-      <div class="gm-principle">
-        <strong>❶ 現状に満足しすぎる</strong>
-        「今でいいや」と思った瞬間、衝動は消える。
-      </div>
-      <div class="gm-principle">
-        <strong>❷ 理想が不明確</strong>
-        ギャップが見えないと、行動意欲は生まれない。
-      </div>
-      <div class="gm-principle">
-        <strong>❸ 目的がわからない</strong>
-        「なんでやるんだっけ？」で、足が止まる。
-      </div>
-    </div>
-    <div class="gm-bottom">
-      <div class="gm-lead">
-        ギャップは"問題"ではない。<span class="emph">エネルギー源</span>である。
-      </div>
-      <div class="gm-link">
-        <span class="lbl">WORKSHEET LINK</span>
-        → STEP 01 PART A で、<br>このギャップを「一行」で可視化する。
+      <div class="axis-card">
+        <div class="axis-num">04</div>
+        <div class="axis-title">即効性</div>
+        <div class="axis-desc">3ヶ月以内に効果が見えるか</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 10 / 22 —</div>
+      <div class="mark">— 06 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 11: STEP 01 BRIDGE ============== -->
+  <!-- ============== SLIDE 07: STEP 01 BRIDGE ============== -->
   <section class="slide bridge">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — BEGIN</div>
@@ -1454,340 +861,238 @@
       <div class="section-kicker">DIVERGE ／ 発散</div>
       <div class="bridge-num">01</div>
       <h1>
-        ギャップを定義し、<br>
-        埋まらない<span class="emph">理由</span>を書き出す。
+        必要要素ごとに、<span class="emph">現在の課題</span>を洗い出す。
       </h1>
       <p class="sub">
-        まず現状と理想のギャップを一行で定義する。<br>
-        次に、そのギャップが<strong style="color:var(--accent);">なぜ今まで埋まらなかったのか</strong> を全部書き出す。<br>
-        ここが、あなたのストッパー棚卸しの現場だ。
+        前セッションで抽出した「目標達成に必要な要素」を手元に置き、<br>
+        それぞれに対する「今の課題」を具体的に書き出す。<br>
+        事実ベースで。感覚ではなく。
       </p>
       <div class="meta">
-        <div class="chip">TOTAL 8 MIN</div>
-        <div class="chip">PART A — 3 MIN</div>
-        <div class="chip">PART B — 5 MIN</div>
+        <div class="chip">8 MIN</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 11 / 22 —</div>
+      <div class="mark">— 07 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 12: INSTRUCTION (PART A) ============== -->
+  <!-- ============== SLIDE 08: STEP 01 INSTRUCTION ============== -->
   <section class="slide instr">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — INSTRUCTION</div>
-      <div class="page-id">STEP 01 · PART A</div>
+      <div class="page-id">STEP 01 · IDENTIFY</div>
     </div>
     <div class="instr-head">
       <span class="step-tag">STEP 01</span>
-      <span class="part-tag">PART A ／ DEFINE</span>
-      <span class="timer-tag">03:00</span>
+      <span class="part-tag">IDENTIFY ／ 課題洗い出し</span>
+      <span class="timer-tag">08:00</span>
     </div>
     <h1>
-      現状と理想の<span class="emph">ギャップ</span>を、<br>
-      一行で定義する。
+      各必要要素に対して、<span class="emph">今の課題</span>を書き出す。
     </h1>
     <div class="instr-body">
       <div class="instr-col">
-        <div class="num">CURRENT — 今どこにいるか</div>
-        <div class="hd">現状を3つ</div>
+        <div class="num">LEFT — 必要要素</div>
+        <div class="hd">前セッションから転記</div>
         <div class="bp">
-          曖昧な言葉を避け、<strong>数字・場面・固有名詞</strong>で書く。<br>
-          例：「月商◯万」「◯件の案件保留」「朝8時に起きられない」
+          前のワークシートに書いた「目標達成に必要な要素」をそのまま書き写す。チェックリスト形式でOK。
         </div>
       </div>
       <div class="instr-col accent">
-        <div class="num">IDEAL — どこに向かいたいか</div>
-        <div class="hd">理想を3つ</div>
+        <div class="num">RIGHT — 現在の課題</div>
+        <div class="hd">その要素に対する障壁</div>
         <div class="bp">
-          「こうなれたら本物だ」と思える姿を。<br>
-          綺麗事でもいい。ただし、<strong>他人の理想</strong>を書かないこと。
-        </div>
-      </div>
-    </div>
-    <div class="instr-rule">
-      <span class="lbl">▶ THE GAP</span>
-      <span>ギャップ（理想に届いていない理由）を、赤線で4行書く。これがワークの起点になる。</span>
-    </div>
-    <div class="chrome-bottom">
-      <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 12 / 22 —</div>
-    </div>
-  </section>
-
-  <!-- ============== SLIDE 13: INSTRUCTION (PART B) ============== -->
-  <section class="slide instr">
-    <div class="chrome-top">
-      <div class="brand">WORKSHOP — INSTRUCTION</div>
-      <div class="page-id">STEP 01 · PART B</div>
-    </div>
-    <div class="instr-head">
-      <span class="step-tag">STEP 01</span>
-      <span class="part-tag">PART B ／ DIVERGE</span>
-      <span class="timer-tag">05:00</span>
-    </div>
-    <h1>
-      埋まらない<span class="emph">理由</span>を、<span class="emph">20個</span>書き出す。
-    </h1>
-    <div class="instr-body">
-      <div class="instr-col">
-        <div class="num">EXTERNAL — 外的ストッパー</div>
-        <div class="hd">環境・時間・関係</div>
-        <div class="bp">
-          目に見える制約を書く。<br>
-          例：「SNSで夜に1.5時間溶ける」「月末は営業会議で3日潰れる」「◯◯さんの相談を断れない」。<strong>具体的な場面</strong>で書く。
-        </div>
-      </div>
-      <div class="instr-col accent">
-        <div class="num">INTERNAL — 内的ストッパー</div>
-        <div class="hd">思い込み・感情・信念</div>
-        <div class="bp">
-          頭の中で鳴っている声を書く。<br>
-          例：「どうせ自分には…」「失敗したら◯◯に笑われる」「迷惑をかけたくない」。<strong>自分の台詞そのまま</strong>で書く。
+          「なぜその要素が満たせていないのか」を具体的に書く。<strong>「頑張りが足りない」禁止</strong>。事実・数字・場面で書く。
         </div>
       </div>
     </div>
     <div class="instr-rule">
       <span class="lbl">▶ THE RULE</span>
-      <span>質より量。整った言葉より、生々しい言葉。20個埋まらなくてもOK、手を止めない。</span>
+      <span>課題は具体的に。「週3回の訪問が月1回になっている」「提案書の雛形がない」のように、事実ベースで書く。</span>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 13 / 22 —</div>
+      <div class="mark">— 08 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 14: STEP 02 BRIDGE ============== -->
+  <!-- ============== SLIDE 09: STEP 02 BRIDGE ============== -->
   <section class="slide bridge">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — SELECT</div>
       <div class="page-id">STEP 02 / 04</div>
     </div>
     <div>
-      <div class="section-kicker">SELECT ／ 選択</div>
+      <div class="section-kicker">EVALUATE ／ 評価・選択</div>
       <div class="bridge-num">02</div>
       <h1>
-        20個から、<span class="emph">1枚目の<br>ドミノ</span>を選び抜く。
+        4つの軸で、<span class="emph">最優先課題</span>を1つ選ぶ。
       </h1>
       <p class="sub">
-        これが倒れれば、他の悩みが連鎖で倒れる──<br>
-        そう思える<strong style="color:var(--accent);">たった1つ</strong>を選ぶ。<br>
-        迷ったら、最も直視したくないものを選べ。
+        感覚で「大事そう」を選ぶと、無意識に解きやすい課題に逃げる。<br>
+        影響度・着手しやすさ・難易度・即効性——構造的に評価して選ぶ。
       </p>
       <div class="meta">
-        <div class="chip">TOTAL 5 MIN</div>
+        <div class="chip">7 MIN</div>
         <div class="chip">PICK ONE</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 14 / 22 —</div>
+      <div class="mark">— 09 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 15: STEP 02 INSTR ============== -->
+  <!-- ============== SLIDE 10: STEP 02 INSTRUCTION ============== -->
   <section class="slide instr">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — INSTRUCTION</div>
-      <div class="page-id">STEP 02 · SELECT</div>
+      <div class="page-id">STEP 02 · EVALUATE</div>
     </div>
     <div class="instr-head">
       <span class="step-tag">STEP 02</span>
-      <span class="part-tag">SELECT ／ 選択</span>
-      <span class="timer-tag">05:00</span>
+      <span class="part-tag">EVALUATE ／ 最優先課題</span>
+      <span class="timer-tag">07:00</span>
     </div>
     <h1>
-      最も<span class="emph">直視したくない</span>1つを選ぶ。
+      評価マトリクスで採点し、<span class="emph">最優先</span>を選ぶ。
     </h1>
     <div class="instr-body">
       <div class="instr-col">
-        <div class="num">WHY THIS ONE? — 選んだ理由</div>
-        <div class="hd">なぜ「1枚目のドミノ」か</div>
+        <div class="num">MATRIX — 4軸で採点</div>
+        <div class="hd">◎=3 / ○=2 / △=1</div>
         <div class="bp">
-          他の悩みとの<strong>連鎖</strong>を想像する。<br>
-          「これが倒れたら、◯番と◯番も勝手に倒れる」と言えるか。
+          STEP 01の各課題を4軸（影響度・着手しやすさ・難易度・即効性）で採点し、合計点を出す。
         </div>
       </div>
       <div class="instr-col accent">
-        <div class="num">DOMINO EFFECT — 倒れる連鎖</div>
-        <div class="hd">倒れる他の悩み</div>
+        <div class="num">THE ONE — 最優先課題</div>
+        <div class="hd">合計点が最も高い1つ</div>
         <div class="bp">
-          20個のうち、<strong>番号で</strong>書き出す。<br>
-          連鎖が見えないなら、それはセンターピンじゃない。
+          選んだ課題を<strong>自分の言葉で書き直す</strong>。「なぜこれが最優先か」の理由も1行で。
         </div>
       </div>
     </div>
     <div class="instr-rule">
-      <span class="lbl">▶ 罠を避ける</span>
-      <span>一番「解きやすいもの」を選んでいないか。「これを認めたくない」という感情が出るものが、本物のボトルネック。</span>
+      <span class="lbl">▶ 迷ったとき</span>
+      <span>合計点が同じなら「影響度」を最重視せよ。1つが動けば他が連鎖で動く課題こそ、最優先に値する。</span>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 15 / 22 —</div>
+      <div class="mark">— 10 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 16: STEP 03 BRIDGE ============== -->
+  <!-- ============== SLIDE 11: STEP 03 BRIDGE ============== -->
   <section class="slide bridge">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — ANALYZE</div>
       <div class="page-id">STEP 03 / 04</div>
     </div>
     <div>
-      <div class="section-kicker">ANALYZE ／ 解析</div>
+      <div class="section-kicker">VALIDATE ／ 検証</div>
       <div class="bridge-num">03</div>
       <h1>
-        11の問いで、<br>
-        <span class="emph">選んだ1つ</span>を解剖する。
+        8つの問いで、<span class="emph">本当にその課題か</span>を検証する。
       </h1>
       <p class="sub">
-        綺麗な答えは不要。頭に浮かんだ言葉をそのまま置く。<br>
-        Phase A → D の順で潜る。<br>
-        <strong style="color:var(--accent);">「時間がない」は禁止。</strong>
+        選んだ課題が「真の課題」かどうか。8つの角度から問い直す。<br>
+        ここで課題が変わることこそ、検証の本来の成果だ。
       </p>
       <div class="meta">
-        <div class="chip">TOTAL 15 MIN</div>
-        <div class="chip">A-B — 5 MIN</div>
-        <div class="chip">C — 5 MIN</div>
-        <div class="chip">D — 5 MIN</div>
+        <div class="chip">10 MIN</div>
+        <div class="chip">8 QUESTIONS</div>
       </div>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 16 / 22 —</div>
+      <div class="mark">— 11 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 17: STEP 03 PHASE A-B INSTR ============== -->
+  <!-- ============== SLIDE 12: STEP 03 Q1-Q4 INSTRUCTION ============== -->
   <section class="slide instr">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — INSTRUCTION</div>
-      <div class="page-id">STEP 03 · PHASE A-B</div>
+      <div class="page-id">STEP 03 · Q1-Q4</div>
     </div>
     <div class="instr-head">
       <span class="step-tag">STEP 03</span>
-      <span class="part-tag">PHASE A-B ／ 4Q</span>
+      <span class="part-tag">VALIDATE ／ Q1-Q4</span>
       <span class="timer-tag">05:00</span>
     </div>
     <h1>
-      現状の残酷な直視 ／ 心理ブレーキ<br>
-      <span style="color:var(--mute); font-size:54px;">（Q0-Q3）</span>
+      波及効果と根本性を検証する（Q1-Q4）
     </h1>
     <div class="instr-body">
       <div class="instr-col">
-        <div class="num">PHASE A — THE BRUTAL TRUTH</div>
-        <div class="hd">Q0-Q1 現状の残酷な直視</div>
+        <div class="num">Q1-Q2 IMPACT ／ 波及と根本</div>
+        <div class="hd">連鎖と本質を問う</div>
         <div class="bp">
-          理想を100%としたときの<strong>現在地</strong>と、到達できていない<strong>真の理由</strong>。「時間がない」禁止。
+          <strong>Q1</strong> この課題を解決すれば、他のどの課題が連鎖的に解消されるか？ <strong>Q2</strong> これは「本当の課題」か、別の課題の「症状」ではないか？
         </div>
       </div>
       <div class="instr-col accent">
-        <div class="num">PHASE B — HIDDEN BRAKES</div>
-        <div class="hd">Q2-Q3 心理的ブレーキ</div>
+        <div class="num">Q3-Q4 RESISTANCE ／ 抵抗と放置</div>
+        <div class="hd">なぜ残っているかを問う</div>
         <div class="bp">
-          <strong>安定という甘え</strong>はどこに出ているか。<br>
-          本気で踏んだとき<strong>失うことを恐れている</strong>ものは何か。
+          <strong>Q3</strong> なぜこの課題は、これまで解決されずに残っているのか？ <strong>Q4</strong> この課題に取り組むことへの「心理的な抵抗」はあるか？あるなら何か？
         </div>
       </div>
     </div>
     <div class="instr-rule">
       <span class="lbl">▶ THE RULE</span>
-      <span>頭で整えない。最初に浮かんだ言葉をそのまま書く。取り繕うと、ストッパーは隠れる。</span>
+      <span>頭で整えない。最初に浮かんだ言葉をそのまま書く。取り繕うと、真の課題は隠れる。</span>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 17 / 22 —</div>
+      <div class="mark">— 12 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 18: STEP 03 PHASE C INSTR ============== -->
+  <!-- ============== SLIDE 13: STEP 03 Q5-Q8 INSTRUCTION ============== -->
   <section class="slide instr">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — INSTRUCTION</div>
-      <div class="page-id">STEP 03 · PHASE C</div>
+      <div class="page-id">STEP 03 · Q5-Q8</div>
     </div>
     <div class="instr-head">
       <span class="step-tag">STEP 03</span>
-      <span class="part-tag">PHASE C ／ 4Q</span>
+      <span class="part-tag">VALIDATE ／ Q5-Q8</span>
       <span class="timer-tag">05:00</span>
     </div>
     <h1>
-      限界点とリソース<br>
-      <span style="color:var(--mute); font-size:54px;">（Q4-Q7）</span>
+      逃げと実行可能性を検証する（Q5-Q8）
     </h1>
     <div class="instr-body">
       <div class="instr-col">
-        <div class="num">Q4-Q5 LIMITS ／ 限界点</div>
-        <div class="hd">半年後に限界を迎えるのは？</div>
+        <div class="num">Q5-Q6 CLARITY ／ 明確さと逃げ</div>
+        <div class="hd">ゴールと逃避を問う</div>
         <div class="bp">
-          体力・モチベ・スキル。<br>
-          そして、目標達成に<strong>決定的に欠けているもの</strong>を1つ。
+          <strong>Q5</strong> この課題が解決された状態を、具体的に描写できるか？ <strong>Q6</strong> 「解きやすいから」選んでいないか？もっと直視したくない課題はないか？
         </div>
       </div>
       <div class="instr-col accent">
-        <div class="num">Q6-Q7 ENERGY LEAK ／ 流出</div>
-        <div class="hd">抱え込み／エネルギー流出</div>
+        <div class="num">Q7-Q8 URGENCY ／ 緊急度と実行</div>
+        <div class="hd">放置の代償と一歩を問う</div>
         <div class="bp">
-          「<strong>自分でやった方が早い</strong>」と抱え込んでいるタスク。<br>
-          そして<strong>最もエネルギーを奪う</strong>人・環境・習慣。
+          <strong>Q7</strong> この課題に半年間取り組まなかったら、どうなるか？ <strong>Q8</strong> この課題を解決するための最初の一歩は何か？それは明日できるか？
         </div>
       </div>
     </div>
     <div class="instr-rule">
-      <span class="lbl">▶ Phase C の狙い</span>
-      <span>「リソース不足」を他責にしない。自分の配分ミスとして引き受けるだけで、対策は半分見えている。</span>
+      <span class="lbl">▶ Q6で別の課題が浮かんだら</span>
+      <span>STEP 02に戻ってよい。検証の結果、最優先が変わることこそ、このSTEPの本来の成果だ。</span>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 18 / 22 —</div>
+      <div class="mark">— 13 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 19: STEP 03 PHASE D INSTR (Q10) ============== -->
-  <section class="slide instr">
-    <div class="chrome-top">
-      <div class="brand">WORKSHOP — INSTRUCTION</div>
-      <div class="page-id">STEP 03 · PHASE D</div>
-    </div>
-    <div class="instr-head">
-      <span class="step-tag">STEP 03</span>
-      <span class="part-tag">PHASE D ／ 3Q</span>
-      <span class="timer-tag">05:00</span>
-    </div>
-    <h1>
-      構造化と<span class="emph">センターピン</span><br>
-      <span style="color:var(--mute); font-size:54px;">（Q8-Q10）</span>
-    </h1>
-    <div class="instr-body">
-      <div class="instr-col">
-        <div class="num">Q8-Q9 STRUCTURE ／ 構造</div>
-        <div class="hd">欠けている仕組み／放置の理由</div>
-        <div class="bp">
-          気合に頼らず自動で動ける<strong>仕組み</strong>が欠けているのはどこ？<br>
-          なぜ<strong>これまで解決されずに放置</strong>されてきた？
-        </div>
-      </div>
-      <div class="instr-col accent">
-        <div class="num">Q10 ★ THE CENTER PIN</div>
-        <div class="hd">全てをドミノ倒しにする根本原因</div>
-        <div class="bp">
-          <strong>Q10 こそ本丸</strong>。もう一段下に、誰にも言いたくない本音が潜んでいないか。最後にもう一度、自分に問え。
-        </div>
-      </div>
-    </div>
-    <div class="instr-rule">
-      <span class="lbl">▶ Q10 に達したら</span>
-      <span>「それは本当に根本か？」と3回問う。それでも残った言葉が、あなたのセンターピン。</span>
-    </div>
-    <div class="chrome-bottom">
-      <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 19 / 22 —</div>
-    </div>
-  </section>
-
-  <!-- ============== SLIDE 20: STEP 04 BRIDGE ============== -->
+  <!-- ============== SLIDE 14: STEP 04 BRIDGE ============== -->
   <section class="slide bridge">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — CONVERGE</div>
@@ -1797,12 +1102,12 @@
       <div class="section-kicker">CONVERGE ／ 収束</div>
       <div class="bridge-num">04</div>
       <h1>
-        一行で、真の課題を<br>
-        <span class="emph">封じ込める</span>。
+        真の課題を一行で<span class="emph">定義</span>し、<br>
+        理由とともに<span class="emph">宣言</span>する。
       </h1>
       <p class="sub">
-        11の問いで解剖した"本音"を、<br>
-        月曜の朝にも効く <strong style="color:var(--accent);">1行</strong> に圧縮する。<br>
+        検証を経て磨き上げた課題を、月曜の朝にも効く1行に圧縮する。<br>
+        「なぜこれが最優先なのか」の理由とセットで。<br>
         これが、京都から持ち帰る武器。
       </p>
       <div class="meta">
@@ -1812,11 +1117,11 @@
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 20 / 22 —</div>
+      <div class="mark">— 14 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 21: STEP 04 REDEFINE 構文 ============== -->
+  <!-- ============== SLIDE 15: STEP 04 REDEFINE ============== -->
   <section class="slide redefine">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — THE ONE SENTENCE</div>
@@ -1828,34 +1133,35 @@
       <span class="timer-tag">05:00</span>
     </div>
     <h1>
-      私の真の課題は、<span class="emph">〜ではなく、〜である</span>。
+      私の最優先課題は、<span class="emph">〜</span>である。なぜなら、<span class="emph">〜</span>だからだ。
     </h1>
     <div class="redefine-stage">
       <div class="stage-label">THE ONE SENTENCE</div>
       <div class="redefine-syntax">
-        私の真の課題は、<br>
-        <span class="slot">（表面的な悩み）</span> ではなく、<br>
-        <span class="slot">（直視した本音・構造的欠陥）</span><br>
-        を解決することである。
+        私の最優先課題は、<br>
+        <span class="slot">（検証を経た課題）</span><br>
+        である。なぜなら、<br>
+        <span class="slot">（これが最優先である理由）</span><br>
+        だからだ。
       </div>
     </div>
     <div class="redefine-example">
       <div class="ex-label">EXAMPLE ／ 例</div>
       <div class="ex-text">
-        「私の真の課題は、営業資料を作る時間がないことではなく、<strong>『人からの評価を失うのが怖くて、60点の出来で仕事を振る勇気がないこと』</strong>を解決することである。」
+        「私の最優先課題は、<strong>『60点の出来で仕事を任せる勇気がないこと』</strong>である。なぜなら、これが解決すれば営業時間の確保もチーム育成も連鎖的に動き出すからだ。」
       </div>
     </div>
     <div class="instr-rule">
       <span class="lbl">▶ THE ONE SENTENCE</span>
-      <span>カッコ内を<strong style="color:#FFE4DF;">埋められない</strong>なら、Q10 に戻る。言語化できたものだけが、持ち帰れる。</span>
+      <span>理由が書けないなら、Q1に戻る。「なぜこれか」を言語化できたものだけが、持ち帰れる。</span>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 21 / 22 —</div>
+      <div class="mark">— 15 / 16 —</div>
     </div>
   </section>
 
-  <!-- ============== SLIDE 22: STEP 04 SHARE & FEEDBACK ============== -->
+  <!-- ============== SLIDE 16: STEP 04 SHARE ============== -->
   <section class="slide instr">
     <div class="chrome-top">
       <div class="brand">WORKSHOP — SHARE &amp; FEEDBACK</div>
@@ -1867,32 +1173,31 @@
       <span class="timer-tag">15:00</span>
     </div>
     <h1>
-      互いに<span class="emph">問い返す</span>。
+      理由とともに<span class="emph">宣言</span>し、互いに<span class="emph">問い返す</span>。
     </h1>
     <div class="instr-body">
       <div class="instr-col">
         <div class="num">DECLARE — 宣言する</div>
-        <div class="hd">自分の1行を音読する</div>
+        <div class="hd">課題と理由を声に出す</div>
         <div class="bp">
-          「私の真の課題は〜」と<strong>声に出して</strong>読む。<br>
-          書いた言葉と、口にした言葉のズレに本音が出る。
+          「私の最優先課題は〜。なぜなら〜」と<strong>声に出して</strong>読む。書いた言葉と口にした言葉のズレに本音が出る。
         </div>
       </div>
       <div class="instr-col accent">
         <div class="num">CHALLENGE — 問い返す</div>
         <div class="hd">優しさより、鋭さ</div>
         <div class="bp">
-          「本当に根本？」「Q3から逃げてない？」「他人のせいに聞こえない？」── 容赦なく問い返す。<strong>それが相手への敬意。</strong>
+          「それは症状じゃないか？」「解きやすいのを選んでないか？」「理由が弱くないか？」── 容赦なく問い返す。<strong>それが相手への敬意。</strong>
         </div>
       </div>
     </div>
     <div class="instr-rule">
       <span class="lbl">▶ GOAL STATE</span>
-      <span>終了時、全員が『明日から解くべきはこの問いだ』という1行を握りしめている。書き直してOK。</span>
+      <span>終了時、全員が『私の最優先課題はこれだ。なぜなら〜だからだ』という1行を、理由とともに握りしめている。</span>
     </div>
     <div class="chrome-bottom">
       <div>KOIKE / SESSION 01</div>
-      <div class="mark">— 22 / 22 —</div>
+      <div class="mark">— 16 / 16 —</div>
     </div>
   </section>
 
